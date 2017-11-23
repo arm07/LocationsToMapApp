@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">LocationsToMapApp</string>
+    <string name="sort_by_name">Sort by name</string>
+    <string name="sort_by_dist">Sort by distance</string>
+    <string name="sort_by_arrival">Sort by arrival time</string>
+
+</resources>
