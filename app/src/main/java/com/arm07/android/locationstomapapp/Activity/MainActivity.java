@@ -7,7 +7,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.arm07.android.locationstomapapp.Model.Location;
 import com.arm07.android.locationstomapapp.R;
@@ -17,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class MainActivity extends AppCompatActivity implements ListFragment.OnListLocationSelected {
+public class MainActivity extends AppCompatActivity{
 
 
     private ListView listView;
@@ -99,10 +98,4 @@ public class MainActivity extends AppCompatActivity implements ListFragment.OnLi
         Collections.sort(locationList, comparator);
     }
 
-    @Override
-    public void onLocationSelected(int index) {
-        Toast.makeText(MainActivity.this,"Location selected!",Toast.LENGTH_SHORT).show();
-       // Intent intent=new Intent(this,MapsActivity.class);
-        //startActivity(intent);
-    }
 }

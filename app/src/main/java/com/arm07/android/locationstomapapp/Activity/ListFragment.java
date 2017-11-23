@@ -35,8 +35,6 @@ import java.util.ArrayList;
  * Created by rashmi on 11/22/2017.
  */
 
-
-
 public class ListFragment extends Fragment {
 
     private ListView listView;
@@ -44,15 +42,9 @@ public class ListFragment extends Fragment {
     ArrayList<Location> locationList;
     String url;
 
-    OnListLocationSelected listener;
-    public interface OnListLocationSelected {
-        void onLocationSelected(int index);
-    }
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        listener= (OnListLocationSelected) getActivity();
-
         View view=inflater.inflate(R.layout.fragment_list,container,false);
         listView = (ListView)view.findViewById(R.id.lv);
         url = "http://localsearch.azurewebsites.net/api/Locations";
@@ -96,10 +88,6 @@ public class ListFragment extends Fragment {
                         ListAdapter adapter = new LocationListAdapter(getActivity(), R.layout.list_item_view, locationList);
                         listView.setAdapter(adapter);
 
-                        // included the listener object for adding event listener on click event
-                        /*adapter = new LocationsAdapter(getActivity(),mylistItems,listener);
-                        recyclerView.setAdapter(adapter);*/
-
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -127,14 +115,12 @@ public class ListFragment extends Fragment {
             progressDialog.dismiss();
             progressDialog = null;
             //sortLocation(sortId);
-            /*      ListAdapter adapter = new LocationListAdapter(getActivity(), R.layout.list_item_view, locationList);
-                    listView.setAdapter(adapter);
-                    */
+
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                             Location location = locationList.get(i);
-                            Toast.makeText(getActivity(), "you selected location "/*+latitude+", "+longitude**/, Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getActivity(), "you selected location "/*+latitude+", "+longitude**/, Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getActivity(), GoogleMapsActivity.class);
                             intent.putExtra("location", location);
                             startActivity(intent);

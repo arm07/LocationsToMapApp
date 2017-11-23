@@ -9,7 +9,6 @@ import android.os.Parcelable;
 
 public class Location implements Parcelable {
 
-
     private int id;
     private String name;
     private double latitude;
